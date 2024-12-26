@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{% block title %}{% endblock%}</title>
+
+    {% block cdn_css %}
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    {% endblock cdn_css %}
+
+    {% block css %}
+    <link rel="stylesheet" href="{{ "global/global.css" | static }}">
+    {% endblock %}
+
+    {% block cdn_js %}
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2/moment.min.js"></script>
+    {% endblock cdn_js %}
+
+    {% block js %}{% endblock %}
+
+    {% block extra_head %}{% endblock extra_head %}
+</head>
+<body class="{% block body_class %}{% endblock body_class %}">
+{% block body %}
+<main class="content">{% block content %}{% endblock content %}</main>
+{% endblock %}
+</body>
+</html>

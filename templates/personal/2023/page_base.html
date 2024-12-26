@@ -1,0 +1,17 @@
+{% extends "personal/base.html" %}
+
+{% block cdn_css %}
+{{ super() }}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&amp;display=swap">
+{% endblock cdn_css %}
+{% block css %}
+{{ super() }}
+<link rel="stylesheet" href="{{ "calendrier-avent-2023/arrows.css" | static }}">
+<link rel="stylesheet" href="{{ "calendrier-avent-2023/style.css" | static }}">
+{% endblock css %}
+
+{% block body %}
+<main>
+{% block content %}{% endblock %}
+</main>
+{% endblock %}
