@@ -16,7 +16,7 @@ jobs:
           - {name: black, command: black . --check}
           - {name: flake8, command: flake8 .}
           - {name: isort, command: isort . --check}
-          - {name: pylint, command: 'pylint *.py --evaluation "0 if fatal else max(0, 10 - error - warning)"'}
+          - {name: pylint, command: 'pylint . --evaluation "0 if fatal else max(0, 10 - error - warning)"'}
 
     runs-on: ubuntu-latest
     steps:
