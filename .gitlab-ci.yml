@@ -1,0 +1,20 @@
+image: python:3.12
+
+pages:
+  cache:
+    - key:
+        files:
+          - requirements.txt
+      paths:
+        - ~/.cache/pip
+  script:
+    - python -m pip install --upgrade pip
+    - python -m pip install -r requirements.txt
+    - python scripts/build.py
+    - mv output public
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+  environment: production
