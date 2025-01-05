@@ -1,0 +1,22 @@
+{% extends "personal/generic/page_base.html" %}
+
+{% block title %}Calendrier de l'Avent - Les saints{% endblock %}
+
+{% block body_class %}index{% endblock body_class %}
+{% block content %}
+<h1>
+	Calendrier de l'Avent
+	<br>
+	<span>Les saints</span>
+	<br>
+	<a id="noel" href="25/index.html">25</a>
+</h1>
+<div class="jours">
+	{% for day in days %}<!--
+		-->{% if day != 25 %}<!--
+			--><a href="{{ day }}/index.html">{{ day }}</a><!--
+		-->{% endif %}<!--
+		-->{% if day % 2 == 0 and day != 6 and day != 8 and day != 12 and day != 14 %}<br>{% endif %}<!--
+	-->{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,225 @@
+html {
+	height:100vh;
+	box-sizing:border-box;
+	transition:color 1s;
+}
+
+body {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	text-align:center;
+}
+
+.index {
+	background-image:url(background_2020.jpg);
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+
+.day {
+	display: table-cell;
+	width: 100vw;
+	height: 100vh;
+	vertical-align: middle;
+	background:linear-gradient(#00ffff, #00bfff);
+}
+
+@media (prefers-color-scheme: dark) {
+	.day {
+		background:linear-gradient(#0099ff, #0033ff);
+	}
+}
+
+.etoiles {
+	position:fixed;
+	z-index:-1;
+}
+.etoile {
+	display:inline-block;
+	width:30px;
+	height:30px;
+	transform:translate(50%, 50%);
+	position:fixed;
+	z-index:5;
+	background:url(etoile.png);
+	background-size:cover;
+	transition:left 1s, top 1s, transform 1s;
+}
+@keyframes etoile {
+	0% {
+		opacity:1;
+	}
+	50% {
+		opacity:0;
+	}
+	100% {
+		opacity:1;
+	}
+}
+
+.nuit .jours a {
+	color:#444;
+}
+
+.jours {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-auto-rows: 1fr;
+	grid-gap: 20px;
+	max-width: 700px;
+	margin: 2rem auto;
+}
+@media (orientation: portrait) {
+	.jours {
+		grid-template-columns: repeat(4, 1fr);
+		grid-gap: 10px;
+		max-width: 350px;
+	}
+}
+
+.jours a {
+	width:70px;
+	height:70px;
+	padding:32px 10px 4px 10px;
+	font-size: 32px;
+	background-size:contain;
+	background-repeat:no-repeat;
+}
+
+a {
+	text-align:center;
+	vertical-align:middle;
+}
+
+.c1 { background-image:url(cadeaux/1.png); }
+.c2 { background-image:url(cadeaux/2.png); }
+.c3 { background-image:url(cadeaux/3.png); }
+.c4 { background-image:url(cadeaux/4.png); }
+.c5 { background-image:url(cadeaux/5.png); }
+.c6 { background-image:url(cadeaux/6.png); }
+.c7 { background-image:url(cadeaux/7.png); }
+
+a {
+	box-sizing:border-box;
+	cursor:pointer;
+	color:black;
+	text-decoration:none;
+	display:table-cell;
+	vertical-align:middle;
+}
+
+.jours + .jours {
+	text-align:center;
+	padding:0px;
+	font-weight:normal;
+	display:inline-block;
+}
+
+.jours + .jours a {
+	background:url(etoile%20noel.png) center no-repeat;
+	background-size:contain;
+	padding:8px;
+	padding-top:36px;
+	width:160px;
+	height:160px;
+	box-shadow:none;
+	color:black;
+	font-size:56px;
+}
+
+.ajd {
+	background-image:url(cadeaux/ajd.png);
+}
+
+.jours + .jours a.ajd {
+	animation:noel 1s infinite cubic-bezier(.86,0,.07,1);
+}
+
+
+@keyframes noel {
+	0% {
+		color:#f40;
+	}
+	50% {
+		color:#ffc107;
+	}
+	100% {
+		color:#f40;
+	}
+}
+
+h1 {
+	margin:12px 0px 20px 0px;
+	font-size:42px;
+	white-space:nowrap;
+	color:white;
+}
+
+h2 {
+	font-variant:small-caps;
+}
+
+.lien, .lien a {
+	width:80px;
+	height:80px;
+	cursor:pointer;
+	text-decoration:none;
+	color:black;
+	font-size:42px;
+	text-align:center;
+	vertical-align:middle;
+}
+
+sup {
+	vertical-align:super;
+	font-size:smaller;
+	line-height:normal;
+}
+
+p {
+	margin-left:50px;
+	margin-right:50px;
+}
+
+#retour {
+	float:left;
+	position:fixed;
+	left:0;
+	top:0;
+	display:table-cell;
+	padding:0px;
+	text-align:center;
+	vertical-align:middle;
+	background-color:lightsalmon;
+	font-size:32px;
+	text-decoration:none;
+	color:black;
+	padding:6px;
+	line-height:35px;
+}
+
+img {
+	box-shadow:0px 0px 10px 5px black;
+	width:85vw;
+	margin-top:4px;
+}
+
+#popup_tourner {
+	padding:8px;
+	position:absolute;
+	bottom:0;
+	left:0;
+	right:0;
+	background:#ffc107;
+	color:black;
+	text-align:center;
+	vertical-align:middle;
+	font-size:22px;
+	display:none;
+}
+
+audio {
+	position: absolute;
+	bottom: 16px;
+	right: 16px;
+	width: 300px;
+}

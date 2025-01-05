@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% set title = path | format_path(prefix="Archives du calendrier de l'Avent", here=True) %}
+<title>{{ title }}</title>
+<link rel="stylesheet" href="{{ "global/global.css" | static }}">
+<link rel="stylesheet" href="{{ "global/home.css" | static }}">
+<link rel="stylesheet" href="{{ "personal/arrows.css" | static }}">
+</head>
+<body>
+<main>
+    <h1>
+        {% if path != "." %}
+            <a href="../"><span class="arrow left-arrow"></span></a>
+        {% endif %}
+        {{ title }}
+    </h1>
+    {% for list in listing %}
+        {% if list %}
+            <ul>
+                {% for item in list %}
+                    <li>
+                        <a href="{{ item }}">
+                            {{ item | format_path }}
+                            {% if item == "cate" %}
+                            <img src="https://sitekt.vercel.app/static/favicon.png">
+                            {% elif item == "personal" %}
+                            <img src="https://lfavole.github.io/logo.jpg">
+                            {% endif %}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endfor %}
+</main>
+</body>
+</html>

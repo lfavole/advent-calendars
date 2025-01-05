@@ -1,0 +1,24 @@
+{% extends "personal/generic/page_base.html" %}
+
+{% block title %}Calendrier de l'Avent{% endblock %}
+
+{% block body_class %}index{% endblock body_class %}
+{% block content %}
+{% if folder == "personal/2020" %}
+<div class="etoiles"></div>
+{% endif %}
+{% if folder == "personal/2019" %}
+<img src="{{ "personal/etoile noel 2019.png" | static }}" alt="Calendrier de l'Avent 2019. Bonne route vers Noël...">
+{% else %}
+<h1>Calendrier de l'Avent</h1>
+{% endif %}
+<div class="jours">
+	{% for day in days %}<!--
+		-->{% if day == 25 and folder != "personal/2019" %}</div><div class="jours">{% endif %}<!--
+		--><a href="{{ day }}/index.html">{{ day }}</a><!--
+		-->{% if folder == "personal/2019" %}<!--
+			-->{% if day == 1 or day == 3 or day == 6 or day == 10 or day == 15 or day == 21 or day == 23 %}<br>{% endif %}<!--
+		-->{% endif %}<!--
+	-->{% endfor %}
+</div>
+{% endblock %}

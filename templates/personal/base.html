@@ -22,7 +22,7 @@
 
     {% block extra_head %}{% endblock extra_head %}
 </head>
-<body class="{% block body_class %}{% endblock body_class %}">
+<body class="cal-{{ year}} {% block body_class %}{% endblock body_class %}">
 {% block body %}
 <main class="content">{% block content %}{% endblock content %}</main>
 {% endblock %}

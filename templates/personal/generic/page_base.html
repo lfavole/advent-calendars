@@ -1,0 +1,33 @@
+{% extends "personal/base.html" %}
+
+{% block cdn_css %}
+{{ super() }}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&amp;display=swap">
+{% endblock cdn_css %}
+{% block css %}
+{{ super() }}
+{% if folder == "personal/2019" %}
+<link rel="stylesheet" href="{{ "personal/style_2019.css" | static }}">
+{% elif folder == "personal/2020" %}
+<link rel="stylesheet" href="{{ "personal/style_2020.css" | static }}">
+{% elif folder == "cate/2019" %}
+<link rel="stylesheet" href="{{ "cate/saints.css" | static }}">
+{% else %}
+<link rel="stylesheet" href="{{ "personal/arrows.css" | static }}">
+<link rel="stylesheet" href="{{ "personal/style.css" | static }}">
+{% endif %}
+{% endblock css %}
+
+{% block js %}
+{{ super() }}
+<script src="{{ "personal/today.js" | static }}"></script>
+{% if folder == "personal/2020" %}
+<script src="{{ "personal/script_2020.js" | static }}"></script>
+{% endif %}
+{% endblock js %}
+
+{% block body %}
+<main>
+{% block content %}{% endblock %}
+</main>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends "cate/2019/day.html" %}
+
+{% block content %}
+{{ super() }}
+<audio id="musique" src="../surprise.mp3" controls></audio>
+<div><img id="saint" alt="Joyeux Noël !" src="../25.jpg" ondblclick="document.querySelector('html').requestFullscreen()"></div>
+{% endblock %}

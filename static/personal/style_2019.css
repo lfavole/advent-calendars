@@ -1,0 +1,81 @@
+.index {
+	background:url(fond.png) no-repeat;
+	background-size:cover;
+	text-align:center;
+	vertical-align:middle;
+	padding:2px;
+	background-color:palegreen;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+
+.index main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+}
+@media (min-width: 801px) {
+	.index main {
+		flex-direction: row-reverse;
+	}
+}
+
+.index img {
+	flex: 1 0 200px;
+  	width: 200px;
+	max-width: 50vw;
+	max-height: 100vh;
+}
+.jours {
+	white-space:nowrap;
+}
+.jours a {
+	display:inline-block;
+	width:50px;
+	height:50px;
+	font-size:42px;
+	text-align:center;
+	vertical-align:middle;
+	color:black;
+ 	text-decoration:none;
+	background-color:beige;
+	margin:20px;
+}
+
+.jours a.ajd {background-color:steelblue;}
+
+body.day {
+	background-color:palegreen;
+	text-align:center;
+	vertical-align:middle;
+	padding:2px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+
+#retour {
+	float:left;
+	position:fixed;
+	left:0;
+	top:0;
+	display:table-cell;
+	padding:0px;
+	text-align:center;
+	vertical-align:middle;
+	background-color:lightsalmon;
+	font-size:32px;
+	text-decoration:none;
+	color:black;
+	padding:6px;
+	line-height:35px;
+}
+
+img {
+	width:85vw;
+}
+
+audio {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	width: 200px;
+}

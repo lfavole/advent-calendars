@@ -1,0 +1,21 @@
+{% extends "personal/generic/page_base.html" %}
+
+{% block title %}{{ day|format_day }} décembre{% endblock %}
+
+{% block body_class %}day{% if day == 25 %} christmas{% endif %}{% endblock body_class %}
+{% block content %}
+{% if folder == "personal/2019" or folder == "personal/2020" %}
+<a href="../index.html" id="retour">←</a>
+{% else %}
+<h1>
+    <a href="../index.html"><span class="arrow left-arrow"></span></a>
+    {{ day|format_day_html }} décembre
+</h1>
+{% endif %}
+{% if day != 25 or folder == "personal/2019" or folder == "personal/2020" %}
+    <img src="{{ image_url }}">
+{% endif %}
+{% if folder == "personal/2020" %}
+<div id="popup_tourner">Il vous est recommandé de tourner votre téléphone pour mieux voir la photo.</div>
+{% endif %}
+{% endblock %}

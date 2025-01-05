@@ -1,0 +1,20 @@
+{% extends "personal/generic/page_base.html" %}
+
+{% block title %}{{ day|format_day }} décembre{% endblock %}
+
+{% block body_class %}day{% if day == 25 %} christmas{% endif %}{% endblock body_class %}
+{% block content %}
+<a href="../index.html" id="retour">←</a>
+{% if day != 25 %}
+    <h1>{{ titre | text }}</h1>
+    <p>{{ texte | text }}</p>
+    <p class="attributs">{{ attributs | text }}</p>
+    <p class="stpatron">{{ stpatron | text }}</p>
+    <p class="fete">Fête : {{ fete | text }}</p>
+    <p class="images">
+        <img src="../{{ day }}.jpg" alt="{{ titre }}">
+        Saint patron de {{ enfant }}
+        <img src="../{{ day }}_enfant.jpg" alt="{{ enfant }}">
+    </p>
+{% endif %}
+{% endblock %}

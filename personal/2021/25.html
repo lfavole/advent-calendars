@@ -1,0 +1,17 @@
+{% extends "personal/generic/day.html" %}
+
+{% block css %}
+{{ super() }}
+<link rel="stylesheet" href="../christmas-2021.css">
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script src="../jquery.min.js"></script>
+<script src="../christmas-2021.js"></script>
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+<audio id="musique" src="../musique.mp3" controls></audio>
+{% endblock %}
