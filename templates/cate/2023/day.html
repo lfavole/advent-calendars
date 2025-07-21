@@ -1,0 +1,14 @@
+{% extends "personal/generic/page_base.html" %}
+
+{% block title %}{{ day|format_day }} décembre{% endblock %}
+
+{% block content %}
+<h1>
+    <a href="../index.html"><span class="fleche fl-gauche"></span></a>
+    {{ day|format_day_html }} décembre
+</h1>
+{% if day != 25 %}
+<p class="intro"><img src="../{{ day }}_enfant.jpg"> <b>{{ child|default(child_or_animator) }}</b> vous présente <b>{{ character|default(holiday) }}</b></p>
+{% endif %}
+{{ content|safe }}
+{% endblock %}

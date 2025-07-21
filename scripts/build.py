@@ -56,6 +56,8 @@ def static(ctx, value: str):
 
 folders = [
     "cate/2019",
+    "cate/2023",
+    "cate/2024",
     "personal/2019",
     "personal/2020",
     "personal/2021",
