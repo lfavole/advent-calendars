@@ -158,9 +158,15 @@ def main():
     print("Generating Advent calendar pages")
     for folder in folders:
         print("*", folder)
-        template_folder = "personal/generic" if folder in ("personal/2019", "personal/2020", "personal/2021", "personal/2023", "personal/2024") else folder
+        template_folder = (
+            "personal/generic"
+            if folder in ("personal/2019", "personal/2020", "personal/2021", "personal/2023", "personal/2024")
+            else folder
+        )
         days = range(1, 25 + 1)
-        render(env.get_template(f"{template_folder}/home.html"), f"{folder}/index.html", {"days": days, "folder": folder})
+        render(
+            env.get_template(f"{template_folder}/home.html"), f"{folder}/index.html", {"days": days, "folder": folder}
+        )
 
         day_template = env.get_template(f"{template_folder}/day.html")
         for day in days:
