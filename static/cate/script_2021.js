@@ -17,7 +17,9 @@ $(function() {
 		$("body").css("overflow", "hidden");
 	});
     $(window).on("keydown", function(evt) {
-        if(evt.keyCode == 27)
+        if(evt.keyCode == 27) {
             p.hide("fade");
+			$("body").css("overflow", "");
+		}
 	});
 });
