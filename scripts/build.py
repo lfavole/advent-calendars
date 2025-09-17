@@ -66,6 +66,7 @@ def static(ctx, value: str):
 folders = []
 for base_folder in ("cate", "personal"):
     folders.extend(str(folder) for folder in Path(base_folder).iterdir())
+folders.sort()
 
 names = {
     "cate/2019": "les saints",
