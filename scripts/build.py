@@ -23,12 +23,12 @@ def format_day(value):
     return str(value) + ("er" if value == 1 else "")
 
 
-def slugify(text, separator="-"):
-    text = unicodedata.normalize("NFKD", text)
-    text = text.lower()
-    text = re.sub(r"[^\w\s-]", "", text)
-    text = re.sub(r"[-_\s]+", separator, text).strip(separator)
-    return text
+def slugify(txt, separator="-"):
+    txt = unicodedata.normalize("NFKD", txt)
+    txt = txt.lower()
+    txt = re.sub(r"[^\w\s-]", "", txt)
+    txt = re.sub(r"[-_\s]+", separator, txt).strip(separator)
+    return txt
 
 
 def text(value):
