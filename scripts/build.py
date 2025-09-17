@@ -166,7 +166,8 @@ def main():
         print("*", folder)
         template_folder = (
             "personal/generic"
-            if folder in ("personal/2019", "personal/2020", "personal/2021", "personal/2022", "personal/2023", "personal/2024")
+            if folder
+            in ("personal/2019", "personal/2020", "personal/2021", "personal/2022", "personal/2023", "personal/2024")
             else folder
         )
         days = range(1, 25 + 1)
