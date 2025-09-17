@@ -23,6 +23,13 @@ def format_day(value):
     return str(value) + ("er" if value == 1 else "")
 
 
+def get_video_id(value):
+    match = re.match(r"^https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([0-9A-Za-z_-]{11})$", value)
+    if match:
+        return match.group(1)
+    return ""
+
+
 def slugify(txt, separator="-"):
     txt = unicodedata.normalize("NFKD", txt)
     txt = txt.lower()
@@ -80,6 +87,7 @@ env.filters.update(
         "format_day": format_day,
         "format_day_html": format_day_html,
         "format_path": format_path,
+        "get_video_id": get_video_id,
         "slugify": slugify,
         "static": static,
         "text": text,

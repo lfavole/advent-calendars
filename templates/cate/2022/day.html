@@ -1,0 +1,25 @@
+{% extends "personal/generic/page_base.html" %}
+
+{% block title %}{{ day|format_day }} décembre{% endblock %}
+
+{% block content %}
+<h1>
+    <a href="../index.html"><span class="fleche fl-gauche"></span></a>
+    {{ day|format_day_html }} décembre :
+    {% if day == 25 %}
+        C’est Noël !
+    {% else %}
+        {{ l }} comme...
+    {% endif %}
+</h1>
+<p class="imgs">
+    <img src="../boites/{{ enfant|slugify("_") }}.jpg">
+    <img src="../enfants/{{ enfant|slugify("_") }}.jpg">
+</p>
+<p class="titre-chant">{{ nom_chant }}</p>
+<p class="chant">
+    {% for video in [url_chant, url_chant_2]|select %}
+        <iframe width="400" height="225" src="https://www.youtube.com/embed/{{ video|get_video_id }}?rel=0&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    {% endfor %}
+</p>
+{% endblock %}
