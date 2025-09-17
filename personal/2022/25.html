@@ -1,0 +1,31 @@
+{% extends "personal/generic/day.html" %}
+
+{% block content %}
+{{ super() }}
+<img src="../25.jpg">
+<style>
+img {
+	display:block;
+	width:unset;
+	height:unset;
+	max-height:calc(100vh - 200px);
+	margin:20px auto;
+}
+@media screen and (max-width: 500px) {
+	img {
+		max-height:calc(100vh - 35px);
+	}
+}
+audio {
+	display:block;
+	width:50vw;
+	margin:0 auto;
+}
+@media screen and (max-width: 500px) {
+	audio {
+		width:90vw;
+	}
+}
+</style>
+<audio controls src="../musique.mp3"></audio>
+{% endblock %}
