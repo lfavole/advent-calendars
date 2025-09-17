@@ -6,16 +6,18 @@
 {% endblock cdn_css %}
 {% block css %}
 {{ super() }}
+<link rel="stylesheet" href="{{ "personal/arrows.css" | static }}">
 {% if folder == "personal/2019" %}
 <link rel="stylesheet" href="{{ "personal/style_2019.css" | static }}">
 {% elif folder == "personal/2020" %}
 <link rel="stylesheet" href="{{ "personal/style_2020.css" | static }}">
 {% elif folder == "cate/2019" %}
 <link rel="stylesheet" href="{{ "cate/saints.css" | static }}">
+{% elif folder == "cate/2021" %}
+<link rel="stylesheet" href="{{ "cate/style_2021.css" | static }}">
 {% elif folder == "cate/2023" or folder == "cate/2024" %}
 <link rel="stylesheet" href="{{ "cate/style_2023_2024.css" | static }}">
 {% else %}
-<link rel="stylesheet" href="{{ "personal/arrows.css" | static }}">
 <link rel="stylesheet" href="{{ "personal/style.css" | static }}">
 {% endif %}
 {% endblock css %}
@@ -25,6 +27,8 @@
 <script src="{{ "personal/today.js" | static }}"></script>
 {% if folder == "personal/2020" %}
 <script src="{{ "personal/script_2020.js" | static }}"></script>
+{% elif folder == "cate/2021" %}
+<script src="{{ "cate/script_2021.js" | static }}"></script>
 {% elif folder == "cate/2023" or folder == "cate/2024" %}
 <script src="{{ "cate/script_2023_2024.js" | static }}"></script>
 {% endif %}

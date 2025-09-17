@@ -3,6 +3,7 @@ import json
 import os
 import re
 import shutil
+import unicodedata
 from pathlib import Path, PosixPath
 
 import minify_html
@@ -20,6 +21,14 @@ def format_day_html(value):
 def format_day(value):
     value = int(value)
     return str(value) + ("er" if value == 1 else "")
+
+
+def slugify(text, separator="-"):
+    text = unicodedata.normalize("NFKD", text)
+    text = text.lower()
+    text = re.sub(r"[^\w\s-]", "", text)
+    text = re.sub(r"[-_\s]+", separator, text).strip(separator)
+    return text
 
 
 def text(value):
@@ -54,16 +63,9 @@ def static(ctx, value: str):
     return (PosixPath("static") / value).relative_to(PosixPath(ctx["output_url"]).parent, walk_up=True)
 
 
-folders = [
-    "cate/2019",
-    "cate/2023",
-    "cate/2024",
-    "personal/2019",
-    "personal/2020",
-    "personal/2021",
-    "personal/2023",
-    "personal/2024",
-]
+folders = []
+for base_folder in ("cate", "personal"):
+    folders.extend(str(folder) for folder in Path(base_folder).iterdir())
 
 names = {
     "cate/2019": "les saints",
@@ -77,6 +79,7 @@ env.filters.update(
         "format_day": format_day,
         "format_day_html": format_day_html,
         "format_path": format_path,
+        "slugify": slugify,
         "static": static,
         "text": text,
     }
@@ -104,7 +107,9 @@ def render(template: Template, output_url: str, params=None, data_folder: Path |
         file_urls = re.findall(r'<(?:img|link|script|audio)[^>]+(?:href|src)="\.\./([^."][^"]*)"', output)
         file_urls.extend(file.name for file in data_folder.glob("*.lrc"))
         for file_url in file_urls:
-            shutil.copy(data_folder / file_url, output_file.parent.parent / file_url)
+            dest = output_file.parent.parent / file_url
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy(data_folder / file_url, dest)
 
     output_file.write_text(output, encoding="utf-8")
 
@@ -189,7 +194,7 @@ def main():
         try:
             data = minify_html.minify(
                 prefix + data,
-                do_not_minify_doctype=True,
+                minify_doctype=False,
                 minify_css=True,
                 minify_js=True,
             ).removeprefix(prefix)

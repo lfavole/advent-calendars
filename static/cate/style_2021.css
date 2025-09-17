@@ -1,0 +1,256 @@
+* {
+	box-sizing:border-box;
+}
+body, input, select, textarea {
+	font-family:Montserrat, Arial, Helvetica, sans-serif;
+}
+body {
+	background-color:#88f;
+	background-color:#4ae;
+}
+h1, .jours {
+	font-family:Lobster, cursive;
+}
+h1 {
+	font-size:72px;
+	text-align:center;
+	background-color:unset;
+}
+body.mode-nuit h1 {
+	color:#eee;
+}
+@media screen and (max-width: 500px) {
+	h1 {
+		font-size:48px;
+	}
+	.calendrier-avent h1 {
+		font-size:42px;
+	}
+}
+
+a {
+	color:black;
+}
+main {
+	margin:0px 8px;
+	height:100vh;
+}
+
+.popup {
+	position:fixed;
+	left:50%;
+	bottom:0px;
+	transform:translateX(-50%) translateY(100%);
+	background-color:#f88;
+	font-family:Lobster, cursive;
+	font-size:36px;
+	padding:0.2em 0.5em;
+	border-radius:0.4em 0.4em 0px 0px;
+	animation:popup 4s ease-in-out;
+	user-select:none;
+}
+@keyframes popup {
+	0%, 100% {
+		transform:translateX(-50%) translateY(100%);
+	}
+	15%, 85% {
+		transform:translateX(-50%) translateY(0%);
+	}
+}
+
+.jours {
+	display:grid;
+	grid-template-columns:repeat(6, 1fr);
+	grid-auto-rows:1fr;
+	grid-gap:20px;
+	max-width:700px;
+	margin:0px auto;
+}
+@media (orientation: portrait) {
+	.jours {
+		grid-template-columns:repeat(4, 1fr);
+		grid-gap:10px;
+		max-width:350px;
+	}
+}
+.jours + .jours {
+	display:flex;
+	justify-content:center;
+	margin-top:70px;
+}
+.jours a {
+	width:100px;
+	height:100px;
+	border-radius:20px;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	text-align:center;
+	font-size:64px;
+	color:black;
+	text-decoration:none;
+	background-color:#7ee836;
+	border:5px solid #0d860d;
+	transition:background-color 0.4s, border-color 0.4s;
+}
+@media (orientation: portrait) {
+	.jours a {
+		width:80px;
+		height:80px;
+		border-radius:16px;
+		font-size:50px;
+		border-width:4px;
+	}
+}
+body.mode-nuit .jours a {
+	color:#222;
+}
+.jours a.ajd {
+	background-color:#ff8a7e;
+	border:5px solid #b00f0f;
+	border-radius:50%;
+}
+.jours + .jours a {
+	background-color:#ffd54f;
+	border-color:#f57f17;
+	position:relative;
+	border-radius:10px;
+}
+.jours + .jours a::before, .jours + .jours a::after {
+	content:"";
+	position:absolute;
+	bottom:100%;
+	width:60px;
+	height:40px;
+	border:4px solid red;
+}
+.jours + .jours a::before {
+	right:calc(50% - 2px);
+	border-radius:20% 80%;
+}
+.jours + .jours a::after {
+	left:calc(50% - 2px);
+	border-radius:80% 20%;
+}
+
+@media (max-width: 500px) {
+	.note-photos {
+		padding:8px;
+		text-align:center;
+	}
+}
+@media (min-width: 501px) {
+	.note-photos {
+		position:absolute;
+		left:4px;
+		bottom:4px;
+	}
+}
+
+.texte {
+	font-size:20px;
+}
+.texte.trop-tot {
+	font-size:42px;
+	text-align:center;
+	line-height:1.5em;
+}
+
+img {
+	height:100px;
+}
+
+.enfants {
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:center;
+	max-width:840px;
+	margin:auto;
+	font-family:"Lobster Two", cursive;
+	font-size:1.5em;
+}
+.enfants div {
+	display:flex;
+	flex-direction:column;
+	width:100px;
+	margin:10px 20px;
+	text-align:center;
+}
+.enfants img {
+	height:100px;
+}
+.enfants span {
+	margin-top:0.2em;
+}
+/*
+.enfants {
+	display:grid;
+	grid-template-columns:repeat(6, 100px);
+	grid-auto-rows:128px;
+	grid-gap:15px 30px;
+	justify-content:center;
+}
+.enfants div {
+	display:flex;
+	flex-direction:column;
+	text-align:center;
+}
+.enfants img {
+	height:100px;
+}
+.enfants span {
+	padding-top:0.2em;
+	height:28px;
+}
+*/
+
+ul {
+	line-height:2em;
+	text-align:justify;
+}
+li {
+	margin:0.3em 0px;
+}
+ul span:first-child {
+	font-family:"Lobster Two", cursive;
+	font-size:2em;
+	padding:0px 0.1em;
+	border-radius:0.3em;
+	color:black;
+}
+
+.bougie {
+	display:inline-block;
+	width:0.3em;
+	height:0.8em;
+	background-color:#f44;
+	position:relative;
+	border-radius:0.1em 0.1em 0px 0px;
+	margin:0.2em 0.1em -0.2em 0.1em;
+}
+.bougie::before, .bougie::after {
+	content:"";
+	position:absolute;
+}
+.bougie::before {
+	left:50%;
+	top:0%;
+	transform:translate(-50%, -100%);
+	width:0.05em;
+	height:0.1em;
+	background-color:#888;
+}
+.bougie::after {
+	left:50%;
+	top:0%;
+	transform:scaleX(0.75) translate(-65%, calc(-100% - 0.02em)) rotate(-45deg);
+	width:0.3em;
+	height:0.3em;
+	border-radius:50% 0% 50% 50%;
+	background-color:#ff4;
+	animation:bougie 2s infinite;
+}
+@keyframes bougie {
+	0%, 100% {background-color:#ff2;}
+	50% {background-color:#f90;}
+}

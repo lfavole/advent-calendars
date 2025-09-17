@@ -1,4 +1,5 @@
-.arrow {
+/* supports fleche and fl-gauche for backwards compatibility */
+:is(.arrow, .fleche) {
     position: relative;
     display: inline-block;
     vertical-align: 0.25em;
@@ -9,15 +10,20 @@
     border-radius: var(--height);
     margin: 0 var(--half-height);
 }
+@media print {
+    :is(.arrow, .fleche) {
+    	display: none;
+    }
+}
 
-.arrow,
-.arrow::before,
-.arrow::after {
+:is(.arrow, .fleche),
+:is(.arrow, .fleche)::before,
+:is(.arrow, .fleche)::after {
     background-color: currentcolor;
 }
 
-.arrow::before,
-.arrow::after {
+:is(.arrow, .fleche)::before,
+:is(.arrow, .fleche)::after {
     content: "";
     position: absolute;
     top: calc(50% - var(--half-height));
@@ -29,61 +35,61 @@
     transition: transform 0.4s;
 }
 
-.arrow::before {
+:is(.arrow, .fleche)::before {
     transform: rotate(45deg);
 }
 
-.arrow::after {
+:is(.arrow, .fleche)::after {
     transform: rotate(-45deg);
 }
 
-.arrow:hover::before,
-button:hover .arrow::before,
-a:hover .arrow::before {
+:is(.arrow, .fleche):hover::before,
+button:hover :is(.arrow, .fleche)::before,
+a:hover :is(.arrow, .fleche)::before {
     transform: rotate(30deg);
 }
 
-.arrow:hover::after,
-button:hover .arrow::after,
-a:hover .arrow::after {
+:is(.arrow, .fleche):hover::after,
+button:hover :is(.arrow, .fleche)::after,
+a:hover :is(.arrow, .fleche)::after {
     transform: rotate(-30deg);
 }
 
-.arrow.left-arrow::before,
-.arrow.left-arrow::after {
+:is(.arrow.left-arrow, .fleche.fl-gauche)::before,
+:is(.arrow.left-arrow, .fleche.fl-gauche)::after {
     right: unset;
     left: 0;
     transform-origin: var(--half-height) 50%;
 }
 
-.arrow.left-arrow::before {
+:is(.arrow.left-arrow, .fleche.fl-gauche)::before {
     transform: rotate(-45deg);
 }
 
-.arrow.left-arrow::after {
+:is(.arrow.left-arrow, .fleche.fl-gauche)::after {
     transform: rotate(45deg);
 }
 
-.arrow.left-arrow:hover::before,
-button:hover .arrow.left-arrow::before,
-a:hover .arrow.left-arrow::before,
-.arrow.left-arrow.clicked::before {
+:is(.arrow.left-arrow, .fleche.fl-gauche):hover::before,
+button:hover :is(.arrow.left-arrow, .fleche.fl-gauche)::before,
+a:hover :is(.arrow.left-arrow, .fleche.fl-gauche)::before,
+:is(.arrow.left-arrow, .fleche.fl-gauche).clicked::before {
     transform: rotate(-30deg);
 }
 
-.arrow.left-arrow:hover::after,
-button:hover .arrow.left-arrow::after,
-a:hover .arrow.left-arrow::after,
-.arrow.left-arrow.clicked::after {
+:is(.arrow.left-arrow, .fleche.fl-gauche):hover::after,
+button:hover :is(.arrow.left-arrow, .fleche.fl-gauche)::after,
+a:hover :is(.arrow.left-arrow, .fleche.fl-gauche)::after,
+:is(.arrow.left-arrow, .fleche.fl-gauche).clicked::after {
     transform: rotate(30deg);
 }
 
-.arrow {
+:is(.arrow, .fleche) {
     transition: transform 0.8s cubic-bezier(0, 1, 0, 1);
 }
-.arrow.clicked {
+:is(.arrow, .fleche).clicked {
     transform: translate(0.5em);
 }
-.arrow.left-arrow.clicked {
+:is(.arrow.left-arrow, .fleche.fl-gauche).clicked {
     transform: translate(-0.5em);
 }
