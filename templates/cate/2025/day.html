@@ -1,0 +1,28 @@
+{% extends "personal/generic/page_base.html" %}
+
+{% block title %}{{ day|format_day }} décembre{% endblock %}
+
+{% block content %}
+<h1>
+    <a href="../index.html"><span class="fleche fl-gauche"></span></a>
+    {{ day|format_day_html }} décembre
+</h1>
+
+{% if day == 25 %}
+{{ content|safe }}
+{% else %}
+<p class="intro">
+    {% if day != 21 %}
+        <img src="../{{ day }}_enfant.jpg">
+    {% endif %}
+    <b>{{ child_or_animator }}</b> vous présente <b>{{ saint_name }}</b>
+</p>
+<div class="content">{{ content|safe }}</div>
+<div class="attributes"><strong>Ses attributs :</strong> {{ attributes }}</div>
+<div class="feast"><strong>Fête :</strong> {{ feast }}</div>
+<div class="images">
+    <img src="../{{ day }}_dessin.jpg">
+    <img src="../{{ day }}_photo.jpg">
+</div>
+{% endif %}
+{% endblock %}

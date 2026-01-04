@@ -1,0 +1,11 @@
+{% extends "cate/2023/home.html" %}
+
+{% block css %}
+{{ super() }}
+<link rel="stylesheet" href="{{ "global/stars.css" | static }}">
+{% endblock css %}
+
+{% block js %}
+{{ super() }}
+<script src="{{ "global/stars.js" | static }}"></script>
+{% endblock js %}

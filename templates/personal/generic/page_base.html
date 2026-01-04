@@ -2,7 +2,11 @@
 
 {% block cdn_css %}
 {{ super() }}
+{% if folder == "cate/2025" %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap">
+{% else %}
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&amp;display=swap">
+{% endif %}
 {% endblock cdn_css %}
 {% block css %}
 {{ super() }}
@@ -21,6 +25,8 @@
 <link rel="stylesheet" href="{{ "cate/style_2022.css" | static }}">
 {% elif folder == "cate/2023" or folder == "cate/2024" %}
 <link rel="stylesheet" href="{{ "cate/style_2023_2024.css" | static }}">
+{% elif folder == "cate/2025" %}
+<link rel="stylesheet" href="{{ "cate/style_2025.css" | static }}">
 {% else %}
 <link rel="stylesheet" href="{{ "personal/style.css" | static }}">
 {% endif %}
@@ -35,8 +41,8 @@
 <script src="{{ "cate/script_2021.js" | static }}"></script>
 {% elif folder == "cate/2022" %}
 <script src="{{ "cate/script_2022.js" | static }}"></script>
-{% elif folder == "cate/2023" or folder == "cate/2024" %}
-<script src="{{ "cate/script_2023_2024.js" | static }}"></script>
+{% elif folder == "cate/2023" or folder == "cate/2024" or folder == "cate/2025" %}
+<script src="{{ "cate/script_2023_2024_2025.js" | static }}"></script>
 {% endif %}
 {% endblock js %}
 
