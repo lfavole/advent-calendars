@@ -2,7 +2,7 @@
 
 {% block cdn_css %}
 {{ super() }}
-{% if folder == "cate/2025" %}
+{% if folder == "personal/2025" or folder == "cate/2025" %}
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap">
 {% else %}
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&amp;display=swap">
@@ -17,6 +17,8 @@
 <link rel="stylesheet" href="{{ "personal/style_2020.css" | static }}">
 {% elif folder == "personal/2022" %}
 <link rel="stylesheet" href="{{ "personal/style_2022.css" | static }}">
+{% elif folder == "personal/2025" %}
+<link rel="stylesheet" href="{{ "personal/style_2025.css" | static }}">
 {% elif folder == "cate/2019" %}
 <link rel="stylesheet" href="{{ "cate/saints.css" | static }}">
 {% elif folder == "cate/2021" %}

@@ -2,6 +2,20 @@
 
 {% block title %}Calendrier de l'Avent{% endblock %}
 
+{% block css %}
+{{ super() }}
+{% if folder == "personal/2025" %}
+<link rel="stylesheet" href="{{ "global/stars.css" | static }}">
+{% endif %}
+{% endblock css %}
+
+{% block js %}
+{{ super() }}
+{% if folder == "personal/2025" %}
+<script src="{{ "global/stars.js" | static }}"></script>
+{% endif %}
+{% endblock js %}
+
 {% block body_class %}index{% endblock body_class %}
 {% block content %}
 {% if folder == "personal/2020" %}
